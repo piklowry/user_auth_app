@@ -1,0 +1,29 @@
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+
+.pointer
+  - @photos.each do |m|
+    .col-sm-3.col-xs-6
+      .panel.panel-default
+        .panel-thumbnail
+        = image_tag m.photo_pic.url ,:style => "max-width: 100%"
+        .panel-body
+          %p.lead
+            = m.name  
+            %p
+            %a{:href => "/photos/#{m.id}/edit"} Edit
+            %a{:href => "/photos/#{m.id}/edit"} Delete
+            %br
+            = button_to "More Info!", photo_path(m), method: :get
+            = link_to 'Email to One!', mail_photo_path(m)
+            %br
+            = link_to 'Send to Everyone!', send_to_everyone_photo_path(m)
+
+
+          

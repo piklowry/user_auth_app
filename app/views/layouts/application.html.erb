@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>UserAuthApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+	 <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>User Auth App</title>
+   <style>
+
+  p {
+    margin: 0;
+    color: blue;
+  }
+  div,p {
+    margin-left: 10px;
+  }
+  span {
+    color: blue;
+  }
+
+  .pointer {
+    font-size: 150%;
+    cursor: pointer;
+  }
+  
+  </style>
+
+   
+  </head>
+  <body>
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="/photos" class="navbar-brand">UserAuthApp</a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav">
+          	
+
+            <li class="">
+              
+            <% if user_signed_in? %>
+  <li><%= link_to 'Edit account', edit_user_registration_path %></li>
+  <li><%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %></li>
+<% else %>
+<li><%= link_to 'Login', new_user_session_path %></li>
+<li><%= link_to 'Sign up', new_user_registration_path %></li>
+<% end %>
+<% if user_signed_in? %>
+  <li><%= link_to 'Create New', new_photo_path %></li>
+<% end %>
+            </li>
+            <li>
+              <a href="../help/">Help</a>
+            </li>
+            <li>
+              <a href="http://news.bootswatch.com">Blog</a>
+            </li>
+            
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+  <li><a href="/events">Hi! <%= current_user.email %></a></li>
+  <% end %>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container">
+
+      <div class="page-header" id="banner">
+        <div class="row">
+          <div class="col-lg-6">
+            <%= yield %>
+          </div>
+ 
+ 
+<script>
+
+$('#form').submit(function() {
+if ($.trim($("#photo_name").val()) === "" ){
+alert('Please fill out the Title of the Movie');
+return false;
+}
+});
+</script>
+
+<script>
+$( ".pointer" ).click(function() {
+  $( ".pointer" ).fadeOut( "slow" );
+});
+</script>
+         
+
+          </div>
+        </div>
+      </div>
+
+
+
+</body>
+</html>

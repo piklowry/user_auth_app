@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: user_auth_app_development
+  pool: 5
+
+
+test:
+  adapter: postgresql
+  encoding: utf8
+  reconnect: false
+  database: user_auth_app_test
+  pool: 5
+
+
+
+
