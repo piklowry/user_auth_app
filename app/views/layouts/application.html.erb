@@ -6,6 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+
 </head>
 <body>
 	 <p class="notice"><%= notice %></p>
@@ -33,7 +34,146 @@
     font-size: 150%;
     cursor: pointer;
   }
-  
+
+  #containertwo {
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;  
+}
+
+.left-right {
+    overflow:hidden;
+    height:200px;
+    width:200px;
+    position:relative;
+    background-color:#333;
+    clear: left;
+}
+div.l1,div.l2,div.l3 {
+    width:200px;
+    height:200px;
+    position:absolute;
+    top:0;
+    right:-200px;
+    color:#fff;
+}
+a.l1,a.l2,a.l3 {
+    display: block;
+    width: 50px;
+    height: 50px;
+    float: left;
+    cursor: pointer;
+    opacity: 0.6;
+}
+a:hover {
+    opacity: 1
+}
+
+.l1{
+    color: red;
+    background-color:red;
+}
+.l2{
+    color: green;
+    background-color:green;
+}
+.l3{
+    color: blue;
+    background-color:blue;
+}
+
+
+
+ul.featureBoxes  {
+  color:#eb8f0d;
+  float:left;
+  list-style:none;
+  width:293px;
+}
+
+.paddingRight {
+  padding-right:200px;
+}
+
+ul.featureBoxes li {
+  padding: 0 0 0 10px;
+}
+
+ul.featureBoxes li p {
+  color:#5f717a;
+  line-height:120px;
+  margin-left:100px ;
+}
+
+
+.featuresHeading {
+  background-color:#8a9e3b;
+  color:#fff;
+  cursor:pointer;
+  display:block;
+  font-size:20px;
+  height:30px;
+  line-height:30px;
+  list-style:none;
+  margin:20px 0 10px 0;
+}
+
+.featuresHeading:hover {
+  background-color:#336333;
+}
+
+.featureListings {
+  list-style-position:outside;
+  list-style-type:square;
+  padding-left:20px;
+}
+
+ul.featureListings li p {
+  margin:0;
+  padding:0;
+}
+
+ .awesome {
+    background: #de9a44;
+    margin: 3px;
+    width: auto;
+    height: auto;
+    display: none;
+    float: left;
+  }
+
+.fadein {
+    position:relative;
+    height:320px;
+    width:320px;
+}
+
+.fadein img {
+    position:absolute;
+    left:0;
+    top:0;
+}
+
+#divone, #divtwo, #divthree, #divfour,#divfive, #divsix  {
+position:absolute;
+display: none;
+}
+/*
+#pics {
+width:100px;
+height:100px;
+}*/
+
+#pics img {
+margin-left:125px;
+width:400px;
+height:300px;
+}
+
+
   </style>
 
    
@@ -93,6 +233,19 @@
           <div class="col-lg-6">
             <%= yield %>
           </div>
+
+      
+ <script type="text/javascript">
+
+$(document).ready(function() { 
+    $('#divone').fadeIn(1500).delay(3500).fadeOut(1500);
+    $('#divtwo').fadeIn(1500).delay(3500).fadeOut(1500).delay(3500);
+    $('#divthree').fadeIn(1500).delay(3500).fadeOut(1500);
+    $('#divfour').delay(5000).fadeIn(1500);
+    $('#divfive').fadeIn(1500).delay(3500).fadeOut(1500);
+    $('#divsix').delay(5000).fadeIn(1500);
+});
+</script>
  
  
 <script>
@@ -105,11 +258,36 @@ return false;
 });
 </script>
 
-<script>
-$( ".pointer" ).click(function() {
-  $( ".pointer" ).fadeOut( "slow" );
+
+<!-- // $( ".pointer" ).click(function() {
+//   $( ".pointer" ).fadeOut( "slow" );
+// });
+//  -->
+
+
+
+
+
+    <script>
+
+$(function(){
+  $("ul.featureListings").hide();
+
+  $(".featuresHeading").click(function() {
+    $(this).next().find('ul.featureListings').slideToggle(300);
+    return false;
+  });
 });
+
 </script>
+
+<div class="awesome"></div>
+<div class="awesome"></div>  
+<div class="awesome"></div>  
+<div class="awesome"></div>  
+<div class="awesome"></div>      
+    
+</div>
          
 
           </div>

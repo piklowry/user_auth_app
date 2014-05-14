@@ -1,29 +1,27 @@
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
+.col-sm-8.col-xs-8
+  #pics
+    .img
+    #divone{:height => "100", :width => "100"}
+      = image_tag @photos.first.photo_pic.url
+    #divtwo{:height => "100", :width => "100"}
+      = image_tag @photos.second.photo_pic.url
+    #divthree{:height => "100", :width => "100"}
+      = image_tag @photos.third.photo_pic.url
+    #divfour{:height => "100", :width => "100"}
+      = image_tag @photos.fourth.photo_pic.url
+    #divfive{:height => "100", :width => "100"}
+      = image_tag @photos.fifth.photo_pic.url
+    / %img#divsix{:height => "100", :width => "100"}
+    /   = image_tag @photos.sixth.photo_pic.url
+    / %img#divseven{:height => "100", :width => "100"}
+    /   = image_tag @photos.seventh.photo_pic.url
+    / %img#diveight{:height => "100", :width => "100"}
+    /   = image_tag @photos.eighth.photo_pic.url
+    / %img#divnine{:height => "100", :width => "100"}
+    /   = image_tag @photos.ninth.photo_pic.url
 
-.pointer
-  - @photos.each do |m|
-    .col-sm-3.col-xs-6
-      .panel.panel-default
-        .panel-thumbnail
-        = image_tag m.photo_pic.url ,:style => "max-width: 100%"
-        .panel-body
-          %p.lead
-            = m.name  
-            %p
-            %a{:href => "/photos/#{m.id}/edit"} Edit
-            %a{:href => "/photos/#{m.id}/edit"} Delete
-            %br
-            = button_to "More Info!", photo_path(m), method: :get
-            = link_to 'Email to One!', mail_photo_path(m)
-            %br
-            = link_to 'Send to Everyone!', send_to_everyone_photo_path(m)
+
+
 
 
           
