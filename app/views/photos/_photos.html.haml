@@ -1,0 +1,13 @@
+.row-4
+  - @photos.each do |photo|
+    .col-sm-3.col-xs-6
+      .panel.panel-default
+        .panel-thumbnail
+        = image_tag photo.photo_pic.url ,:style => "max-width: 100%"
+        .panel-body
+          %p.lead
+            = photo.name  
+            %p
+            %a{:href => "/photos/#{photo.id}/edit"} Edit
+            = link_to "Not my Mood, Yo!", photo, :remote => true, :confirm => 'Are you sure?', :method => :delete
+            %br

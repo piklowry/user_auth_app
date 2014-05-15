@@ -1,8 +1,8 @@
-/ - @photo.each do |m|
-/   .col-sm-3.col-xs-6
-/     .panel.panel-default
-/       .panel-thumbnail
-/         = image_tag m.photo_pic.url ,:style => "max-width: 100%"
+- @photo.each do |m|
+  .col-sm-3.col-xs-6
+    .panel.panel-default
+      .panel-thumbnail
+        = image_tag m.photo_pic.url ,:style => "max-width: 100%"
 
 
 = link_to 'Email these photos', mail_photo_path(@photo)

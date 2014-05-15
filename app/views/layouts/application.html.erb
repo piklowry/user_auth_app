@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>UserAuthApp</title>
+  <title>Pik Yo Mood!</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -12,14 +12,10 @@
 	 <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>User Auth App</title>
+
    <style>
 
-  p {
+/*  p {
     margin: 0;
     color: blue;
   }
@@ -109,7 +105,7 @@ ul.featureBoxes li p {
 }
 
 
-.featuresHeading {
+.imagesboxes {
   background-color:#8a9e3b;
   color:#fff;
   cursor:pointer;
@@ -121,17 +117,17 @@ ul.featureBoxes li p {
   margin:20px 0 10px 0;
 }
 
-.featuresHeading:hover {
+.imagesboxes:hover {
   background-color:#336333;
 }
 
-.featureListings {
+.imagesboxeslistings {
   list-style-position:outside;
   list-style-type:square;
   padding-left:20px;
 }
 
-ul.featureListings li p {
+ul.imagesboxeslistings li p {
   margin:0;
   padding:0;
 }
@@ -172,7 +168,7 @@ margin-left:125px;
 width:400px;
 height:300px;
 }
-
+*/
 
   </style>
 
@@ -182,7 +178,7 @@ height:300px;
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a href="/photos" class="navbar-brand">UserAuthApp</a>
+          <a href="/photos" class="navbar-brand">Pik Yo Mood!</a>
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -198,21 +194,19 @@ height:300px;
             <% if user_signed_in? %>
   <li><%= link_to 'Edit account', edit_user_registration_path %></li>
   <li><%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %></li>
+  <li><%= link_to 'Mail a Dot', image_boxes_photos_path %></li>
+  <li><%= link_to 'Sorta Carousel', image_carousel_photos_path %></li>
 <% else %>
 <li><%= link_to 'Login', new_user_session_path %></li>
 <li><%= link_to 'Sign up', new_user_registration_path %></li>
+
 <% end %>
 <% if user_signed_in? %>
   <li><%= link_to 'Create New', new_photo_path %></li>
 <% end %>
             </li>
-            <li>
-              <a href="../help/">Help</a>
-            </li>
-            <li>
-              <a href="http://news.bootswatch.com">Blog</a>
-            </li>
             
+          
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
@@ -239,11 +233,12 @@ height:300px;
 
 $(document).ready(function() { 
     $('#divone').fadeIn(1500).delay(3500).fadeOut(1500);
-    $('#divtwo').fadeIn(1500).delay(3500).fadeOut(1500).delay(3500);
-    $('#divthree').fadeIn(1500).delay(3500).fadeOut(1500);
-    $('#divfour').delay(5000).fadeIn(1500);
+    $('#divtwo').fadeIn(1500).delay(3500).fadeOut(1500);
+    $('#divthree').fadeIn(5000).delay(3500).fadeOut(5000);
+    $('#divfour').fadeIn(1500).delay(3500).fadeOut(1500);
     $('#divfive').fadeIn(1500).delay(3500).fadeOut(1500);
-    $('#divsix').delay(5000).fadeIn(1500);
+    $('#divsix').fadeIn(5000).delay(3500).fadeOut(5000);
+    $('#divseven').delay(5000).fadeIn(1500);
 });
 </script>
  
@@ -259,22 +254,13 @@ return false;
 </script>
 
 
-<!-- // $( ".pointer" ).click(function() {
-//   $( ".pointer" ).fadeOut( "slow" );
-// });
-//  -->
-
-
-
-
-
     <script>
 
 $(function(){
-  $("ul.featureListings").hide();
+  $("ul.imagesboxeslistings").hide();
 
-  $(".featuresHeading").click(function() {
-    $(this).next().find('ul.featureListings').slideToggle(300);
+  $(".imagesboxes").click(function() {
+    $(this).next().find('ul.imagesboxeslistings').slideToggle(300);
     return false;
   });
 });

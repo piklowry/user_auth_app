@@ -6,7 +6,4 @@ describe Photo do
 	it 'should have a photo' do
 		photo.should_not eq(true)
 	end
-
-
-
 end

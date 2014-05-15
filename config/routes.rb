@@ -8,12 +8,16 @@ Rails.application.routes.draw do
     collection do
       get :results
       get :search
+      get :image_boxes
+      get :image_carousel
+
 
     end
   member do 
       get :download_photo_pic 
     end
   end
+  
 
   get "photo/:id/mail" => "photos#mail", :as => "mail_photo"
   get "photo/:id/send_to_everyone" => "photos#send_to_everyone", :as => "send_to_everyone_photo"

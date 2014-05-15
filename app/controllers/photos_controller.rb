@@ -53,12 +53,28 @@ class PhotosController < ApplicationController
     end
   end
 
+  # def destroy
+  #   @photo = Photo.find(params[:id])
+  #     if @photo.delete
+  #     redirect_to photos_path
+  #   end
+  # end
+
   def destroy
     @photo = Photo.find(params[:id])
-      if @photo.delete
-      redirect_to photos_path
+    if @photo.destroy
+    respond_to do |format|
+      format.html { redirect_to photos_path }
+      format.js
+      @photos = Photo.all
+    end
+  else 
+    respond_to do |format|
+      format.html { redirect_to photos_path, notice: "update failed." }
+      format.js
     end
   end
+end
 
   def search
     @search_results  = Photo.search(params[:search])
@@ -73,6 +89,16 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
     file = @photo.photo_pic
     send_file file.path
+  end
+
+
+
+  def image_boxes
+    @photos = Photo.all
+  end
+
+  def image_carousel
+    @photos = Photo.all
   end
 
 

@@ -1,0 +1,22 @@
+.col-sm-8.col-xs-8
+  #pics
+    .img
+    #divone{:height => "100", :width => "100"}
+      = image_tag @photos.first.photo_pic.url
+    #divtwo{:height => "100", :width => "100"}
+      = image_tag @photos.second.photo_pic.url
+    #divthree{:height => "100", :width => "100"}
+      = image_tag @photos.third.photo_pic.url
+    #divfour{:height => "100", :width => "100"}
+      = image_tag @photos.fourth.photo_pic.url
+    #divfive{:height => "100", :width => "100"}
+      = image_tag @photos.fifth.photo_pic.url
+    %img#divsix{:height => "100", :width => "100"}
+      = image_tag @photos.last.photo_pic.url
+    %img#divseven{:height => "100", :width => "100"}
+      = image_tag @photos.first.photo_pic.url
+    / %img#diveight{:height => "100", :width => "100"}
+    /   = image_tag @photos.eighth.photo_pic.url
+    / %img#divnine{:height => "100", :width => "100"}
+    /   = image_tag @photos.ninth.photo_pic.url
+
